@@ -29,11 +29,23 @@ export default {
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
+  components: false,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    // Config for nuxtjs/fontawesome
+    '@nuxtjs/fontawesome'
   ],
+    
+  // Config for nuxtjs/fontawesome
+  fontawesome: {
+    component: 'fa',
+    suffix: false,
+    icons: {
+      solid: true,
+      brands: true,
+    }
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [

@@ -1,9 +1,14 @@
 <template>
-  <Tutorial/>
+  <Landing/>
 </template>
 
 <script>
+import Landing from '@/src/Landing/index.vue';
+
 export default {
-  name: 'IndexPage'
+  name: 'IndexPage',
+  components: {
+    Landing
+  }
 }
 </script>
