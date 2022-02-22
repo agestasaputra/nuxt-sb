@@ -53,7 +53,7 @@
       <QButton 
         type="submit"
         className="q-btn"
-        variant="warning"
+        variant="primary"
         :isLoading="isLoading"
       >
         Submit
