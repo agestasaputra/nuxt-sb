@@ -7,6 +7,7 @@
     :disabled="isLoading || (!isLoading && isDisabled)"
   > 
     <template v-if="isLoading">
+      <!-- <b-spinner small></b-spinner> -->
       <fa :icon="['fas', 'spinner']" spin />
     </template>
     <template v-else>
@@ -108,3 +109,4 @@ export default {
   }
 }
 </script>
+<style scoped src="./style.css"></style>
