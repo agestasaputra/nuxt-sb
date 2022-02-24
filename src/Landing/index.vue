@@ -85,10 +85,10 @@ export default {
   data() {
     return {
       form: {
-          email: '',
-          name: '',
-          food: null,
-          checked: []
+        email: '',
+        name: '',
+        food: null,
+        checked: []
       },
       isLoading: false,
       foods: [{ text: 'Select One', value: null }, 'Carrots', 'Beans', 'Tomatoes', 'Corn'],

@@ -1,14 +1,13 @@
 <template>
   <button
     :type="type"
-    :class="dynamicClassName"
-    :style="styleName"
+    :class="classes"
+    :style="styles"
     @click="$emit('click')"
     :disabled="isLoading || (!isLoading && isDisabled)"
   > 
     <template v-if="isLoading">
-      <!-- <b-spinner small></b-spinner> -->
-      <fa :icon="['fas', 'spinner']" spin />
+      <b-spinner small></b-spinner>
     </template>
     <template v-else>
       <slot></slot>
@@ -35,6 +34,10 @@ export default {
       type: String,
       default: 'primary'
     },
+    isBlocked: {
+      type: Boolean,
+      default: false
+    },
     isLoading: {
       type: Boolean,
       default: false
@@ -46,22 +49,37 @@ export default {
   },
   data() {
     return {
-      dynamicClassName: '',
+      classes: '',
+      styles: '',
     }
   },
   watch: {
     className: {
       handler(newValue) {
-        if (newValue) {
-          this.dynamicClassName = newValue
-        }
+          this.classes = newValue
+      },
+      immediate: true
+    },
+    styleName: {
+      handler(newValue) {
+        this.styles = newValue
       },
       immediate: true
     },
     variant: {
       handler(newValue) {
         if (newValue) {
-          this.dynamicClassName = `${this.dynamicClassName} q-btn--${newValue}`
+          this.classes = `${this.classes} q-btn--${newValue}`
+        }
+      },
+      immediate: true
+    },
+    isBlocked: {
+      handler(newValue) {
+        if (newValue) {
+          this.classes = `${this.classes} q-btn--blocked`
+        } else {
+          this.onButtonBlockedRemove()
         }
       },
       immediate: true
@@ -69,9 +87,9 @@ export default {
     isLoading: {
       handler(newValue) {
         if (newValue) {
-          this.dynamicClassName = `${this.dynamicClassName} q-btn--disabled`
+          this.classes = `${this.classes} q-btn--disabled`
         } else {
-          this.onButtonDisableRemove()
+          this.onButtonDisabledRemove()
         }
       },
       immediate: true
@@ -79,9 +97,9 @@ export default {
     isDisabled: {
       handler(newValue) {
         if (newValue) {
-          this.dynamicClassName = `${this.dynamicClassName} q-btn--disabled`
+          this.classes = `${this.classes} q-btn--disabled`
         } else {
-          this.onButtonDisableRemove()
+          this.onButtonDisabledRemove()
         }
       },
       immediate: true
@@ -97,16 +115,24 @@ export default {
       }
       return result;
     },
-    onButtonDisableRemove() {
-      const classNameArray = this.dynamicClassName.split(" ")
+    onButtonDisabledRemove() {
+      const classNameArray = this.classes.split(" ")
       const isButtonDisabled = classNameArray.find((item) => item === 'q-btn--disabled')
       if (isButtonDisabled) {
         const result = classNameArray.filter((item) => item !== 'q-btn--disabled')
         const classNameString = result.join(" ");
-        this.dynamicClassName = classNameString
+        this.classes = classNameString
+      }
+    },
+    onButtonBlockedRemove() {
+      const classNameArray = this.classes.split(" ")
+      const isButtonBlocked = classNameArray.find((item) => item === 'q-btn--blocked')
+      if (isButtonBlocked) {
+        const result = classNameArray.filter((item) => item !== 'q-btn--blocked')
+        const classNameString = result.join(" ");
+        this.classes = classNameString
       }
     }
   }
 }
 </script>
-<style scoped src="./style.css"></style>
