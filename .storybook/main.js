@@ -14,7 +14,7 @@ module.exports = {
   ],
   // framework
   "framework": "@storybook/vue",
-  // framework
+  // webpack
   webpackFinal: async (config, { configType }) => {
     // tell webpack to resolve @ and ~ to the root folder
     config.resolve.alias['@'] = path.dirname(path.resolve(__dirname));
