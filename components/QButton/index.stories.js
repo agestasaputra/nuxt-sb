@@ -36,7 +36,6 @@ const Template = (_args, { argTypes }) => ({
 export const Default = Template.bind({})
 Default.args = {
   type: "button",
-  className: "q-btn",
   styleName: "",
   variant: "primary",
   isBlocked: false,
