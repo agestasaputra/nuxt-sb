@@ -69,7 +69,37 @@ export default {
     variant: {
       handler(newValue) {
         if (newValue) {
-          this.classes = `${this.classes} q-btn--${newValue}`
+          const variants = [
+            {
+              name: 'primary'
+            },
+            {
+              name: 'secondary'
+            },
+            {
+              name: 'success'
+            },
+            {
+              name: 'danger'
+            },
+            {
+              name: 'warning'
+            },
+            {
+              name: 'info'
+            },
+            {
+              name: 'light'
+            },
+            {
+              name: 'dark'
+            },
+          ]
+          const classNameArray = this.classes.split(" ")
+          variants.forEach((variant) => {
+            const result = classNameArray.find((item) => item !== `q-btn--${variant.name}`)
+            this.classes = `${result} q-btn--${newValue}`
+          })
         }
       },
       immediate: true

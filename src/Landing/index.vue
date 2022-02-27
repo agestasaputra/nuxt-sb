@@ -52,8 +52,8 @@
       <!-- Button Action -->
       <QButton 
         type="submit"
-        className="q-btn"
-        variant="primary"
+        className="q-btn q-btn--secondary"
+        variant="dark"
         :isLoading="isLoading"
       >
         Submit
