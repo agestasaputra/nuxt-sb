@@ -22,10 +22,6 @@ export default {
       type: String,
       default: 'button'
     },
-    className: {
-      type: String,
-      default: 'q-btn'
-    },
     styleName: {
       type: String,
       default: ''
@@ -49,17 +45,11 @@ export default {
   },
   data() {
     return {
-      classes: '',
+      classes: 'q-btn',
       styles: '',
     }
   },
   watch: {
-    className: {
-      handler(newValue) {
-          this.classes = newValue
-      },
-      immediate: true
-    },
     styleName: {
       handler(newValue) {
         this.styles = newValue

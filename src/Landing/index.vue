@@ -52,8 +52,8 @@
       <!-- Button Action -->
       <QButton 
         type="submit"
-        className="q-btn q-btn--secondary"
-        variant="dark"
+        className="q-btn"
+        variant="primary"
         :isLoading="isLoading"
       >
         Submit
@@ -67,23 +67,62 @@
         Reset
       </QButton>
     </b-form>
-    <b-card class="mt-3" header="Form Data Result">
+    <b-card class="mt-3 mb-3" header="Form Data Result">
       <pre class="m-0">{{ form }}</pre>
     </b-card>
+    <QButton 
+      type="submit"
+      className="q-btn"
+      variant="success"
+      @click="onShowModal"
+    >
+      Show Modal
+    </QButton>
+
+    <QModal 
+      v-model="modal"
+      body-class="pb-0"
+      footer-class="border-0"
+    >
+      <template #header>
+        <section class="w-100 d-flex">
+          Ini Header
+        </section>
+      </template>
+      <template #body>
+        <section class="w-100 text-center">
+          <b-icon icon="exclamation-circle" variant="danger" font-scale="6" class="mb-3"></b-icon>
+          <p><strong>Error!</strong></p>
+        </section>
+      </template>
+      <template #footer>
+        <section class="w-100 d-flex justify-content-center">
+          <QButton
+            variant="primary"
+            @click="onCloseModal"
+          >
+            <strong>Close</strong>
+          </QButton>
+        </section>
+      </template>
+    </QModal>
   </div>
 </template>
 
 <script>
 import QButton from "@/components/QButton/index.vue";
+import QModal from "@/components/QModal/index.vue";
 
 export default {
   name: 'LandingPage',
   layout: 'default',
   components: {
-    QButton
+    QButton,
+    QModal
   },
   data() {
     return {
+      modal: false,
       form: {
         email: '',
         name: '',
@@ -96,6 +135,12 @@ export default {
     }
   },
   methods: {
+    onShowModal() {
+      this.modal = true
+    },
+    onCloseModal() {
+      this.modal = false
+    },
     onSubmit(event) {
       if (event) event.preventDefault()
 
