@@ -52,15 +52,15 @@
       <!-- Button Action -->
       <QButton 
         type="submit"
-        className="q-btn"
         variant="primary"
+        class="new-class"
+        style="color: warning"
         :isLoading="isLoading"
       >
         Submit
       </QButton>
       <QButton 
         type="reset"
-        className="q-btn"
         variant="danger"
         :isDisabled="isLoading"
       >
@@ -71,8 +71,7 @@
       <pre class="m-0">{{ form }}</pre>
     </b-card>
     <QButton 
-      type="submit"
-      className="q-btn"
+      type="button"
       variant="success"
       @click="onShowModal"
     >

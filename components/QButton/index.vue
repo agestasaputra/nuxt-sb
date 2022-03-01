@@ -2,7 +2,6 @@
   <button
     :type="type"
     :class="classes"
-    :style="styles"
     @click="$emit('click')"
     :disabled="isLoading || (!isLoading && isDisabled)"
   > 
@@ -21,10 +20,6 @@ export default {
     type: {
       type: String,
       default: 'button'
-    },
-    styleName: {
-      type: String,
-      default: ''
     },
     variant: {
       type: String,
@@ -50,12 +45,6 @@ export default {
     }
   },
   watch: {
-    styleName: {
-      handler(newValue) {
-        this.styles = newValue
-      },
-      immediate: true
-    },
     variant: {
       handler(newValue) {
         if (newValue) {
