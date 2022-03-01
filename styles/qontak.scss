@@ -43,6 +43,7 @@ $dark: #212529;
   background-color: $primary;
   color: #fff;
   width: fit-content;
+  margin: 0px;
   padding: 5px 10px;
   border-radius: 0.5em;
   border: unset;
@@ -131,6 +132,7 @@ $dark: #212529;
   &--disabled {
     cursor: not-allowed !important;
     background-color: rgba(108, 117, 125, 0.4);
+    color: #fff;
 
     &:hover {
       background-color: rgba(108, 117, 125, 0.4);

@@ -5,8 +5,11 @@ import '@/styles/qontak.scss';
 
 // import to later use vue-bootstrap html tags
 import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
+// import vuex
+import Vuex from 'vuex';
 
 import Vue from 'vue'
+Vue.use(Vuex);
 
 // tell Vue to use bootstrap html tags
 Vue.use(BootstrapVue)
@@ -20,4 +23,5 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  viewMode: 'docs',
 }
