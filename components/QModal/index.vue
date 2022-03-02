@@ -49,7 +49,7 @@ export default {
     },
     footerClass: {
       type: String,
-      default: ""
+      default: "border-0"
     },
     hideHeader: {
       type: Boolean,
