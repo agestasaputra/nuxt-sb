@@ -53,8 +53,6 @@
       <QButton 
         type="submit"
         variant="primary"
-        class="new-class"
-        style="color: warning"
         :isLoading="isLoading"
       >
         Submit
