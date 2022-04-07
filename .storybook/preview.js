@@ -2,16 +2,12 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import '@/styles/qontak.scss';
-
 // import to later use vue-bootstrap html tags
 import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
-// import vuex
-import Vuex from 'vuex';
-
 import Vue from 'vue'
-Vue.use(Vuex);
+// import Vuex from 'vuex';
 
-// tell Vue to use bootstrap html tags
+// Vue.use(Vuex);
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
 

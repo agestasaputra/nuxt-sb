@@ -1,4 +1,3 @@
-import Vuex from 'vuex';
 import QModal from './index.vue'
 import QButton from '../QButton/index.vue'
 import { action } from '@storybook/addon-actions'
@@ -20,13 +19,20 @@ export default {
 const DefaultTemplate = (_args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { QModal, QButton },
+  data() {
+    return {
+      modal: {
+        isShow: false
+      }
+    }
+  },
   template: `
     <div>
       <h6> Default Modal </h6>
       <hr />
       <QButton variant="success" @click="onToggleModal"> Open Modal </QButton>
       <QModal 
-        v-model="$store.state.modal.isShow"
+        v-model="modal.isShow"
         v-bind="$props"
       >
         <template #header>
@@ -55,24 +61,11 @@ const DefaultTemplate = (_args, { argTypes }) => ({
       </QModal>
     </div>
   `,
-  store: new Vuex.Store({
-    state: { 
-      modal: {
-        isShow: false
-      } 
-    },
-    mutations: {
-      SET_TOGGLE_MODAL(state) {
-        console.log('SET_TOGGLE_MODAL - state:', state)
-        state.modal.isShow = !state.modal.isShow
-        action('vuex state')(state);
-      },
-    },
-  }),
   methods: { 
     onToggleModal() {
       console.log('onToggleModal!')
-      this.$store.commit('SET_TOGGLE_MODAL');
+      this.modal.isShow = !this.modal.isShow
+      action('vuex state')(this.state);
     }
   }
 });
