@@ -1,4 +1,3 @@
-import Vuex from 'vuex';
 import QButton from './index.vue'
 import { action } from '@storybook/addon-actions'
 
@@ -51,10 +50,6 @@ Default.args = {
 export const Variant = (_args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { QButton },
-  store: new Vuex.Store({
-    state: {},
-    mutations: {},
-  }),
   methods: {},
   template: `
     <div>
@@ -186,10 +181,6 @@ export const Variant = (_args, { argTypes }) => ({
 export const Loading = (_args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { QButton },
-  store: new Vuex.Store({
-    state: {},
-    mutations: {},
-  }),
   methods: {},
   template: `
     <div>
@@ -337,10 +328,6 @@ export const Loading = (_args, { argTypes }) => ({
 export const Disabled = (_args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { QButton },
-  store: new Vuex.Store({
-    state: {},
-    mutations: {},
-  }),
   methods: {},
   template: `
     <div>
